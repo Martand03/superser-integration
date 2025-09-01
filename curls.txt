@@ -1,0 +1,36 @@
+curl --location 'http://localhost:8088/api/v1/security/login' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: session=eyJfZnJlc2giOmZhbHNlLCJjc3JmX3Rva2VuIjoiNDYxZTM2OWVhY2EyYmUxMzMwNWFhNmQyZjkzNTZjZjc0OGIxN2E4NiIsImxvY2FsZSI6ImVuIn0.aLVLqQ.eDaciBAn0ASvdh0FopN9bp--41Y' \
+--data '{
+    "username": "admin",
+    "password": "admin",
+    "provider": "db",
+    "refresh": true
+  }'
+
+#####################################################
+
+curl --location 'http://localhost:8088/api/v1/security/csrf_token/' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNzU2NzE3ODA0LCJqdGkiOiI4YzE1YmRmMC01MjA3LTQ2ZjItYWVhYS01NDE4ZTRjMTFjZTEiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE3NTY3MTc4MDQsImNzcmYiOiI5YTYxNTUyNS03Njk0LTQxN2ItYjVhMC00MWQyNmI4MTM0NDgiLCJleHAiOjE3NTY3MTg3MDR9.ebBqZIyTB79rgnJTUiQ9D1h2nu7q4j3ffRPg8jYgKKk' \
+--header 'Cookie: session=eyJfZnJlc2giOmZhbHNlLCJjc3JmX3Rva2VuIjoiNDYxZTM2OWVhY2EyYmUxMzMwNWFhNmQyZjkzNTZjZjc0OGIxN2E4NiIsImxvY2FsZSI6ImVuIn0.aLVLqQ.eDaciBAn0ASvdh0FopN9bp--41Y'
+
+  #######################################################
+
+curl --location 'http://localhost:8088/api/v1/security/guest_token/' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNzU2MjA1OTQwLCJqdGkiOiJiMzhkOWU4MS1kMzZjLTRlZDctODg0Yy1mNDFhZWZhYmUwNDciLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoiMSIsIm5iZiI6MTc1NjIwNTk0MCwiY3NyZiI6IjZmMjhhNjg2LWUyMWItNDBiZS04MWYxLWJlNmMxNzY0ZTY2MCIsImV4cCI6MTc1NjIwNjg0MH0.t_G3BucMuWPed6EoH8tvSMTYWI-0LDZ_iHqBUK0J3Mk' \
+--header 'Cookie: session=eyJfZnJlc2giOmZhbHNlLCJjc3JmX3Rva2VuIjoiNDYxZTM2OWVhY2EyYmUxMzMwNWFhNmQyZjkzNTZjZjc0OGIxN2E4NiIsImxvY2FsZSI6ImVuIn0.aLVLqQ.eDaciBAn0ASvdh0FopN9bp--41Y' \
+--data '{
+    "user": {
+      "username": "guest_user",
+      "first_name": "Guest",
+      "last_name": "User"
+    },
+    "resources": [
+      {
+        "type": "dashboard",
+        "id": "f0f8c1f0-1731-4f19-9d30-17fba72f3f8d"
+      }
+    ],
+    "rls": []
+  }'
